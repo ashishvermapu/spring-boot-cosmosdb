@@ -43,7 +43,7 @@ stages:
     #       $(tag)
     - task: CmdLine@2
       inputs:
-        script: 'docker login $DOCKER-SERVER --username $DOCKER-USERNAME --password $DOCKER-PASSWORD'
+        script: 'docker login $DOCKERSERVER --username $DOCKERUSERNAME --password $DOCKERPASSWORD'
     - task: Docker@2
       inputs:
         command: 'build'
