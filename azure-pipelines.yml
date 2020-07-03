@@ -42,14 +42,19 @@ stages:
     #     containerRegistry: $(dockerRegistryServiceConnection)
     #     tags: |
     #       $(tag)
-    - task: CmdLine@2
-      inputs:
-        script: 'docker login $(dockerserver) --username $(dockerusername) --password $(dockerpassword)'
+
     - task: Docker@2
       inputs:
-        repository: 'sbexampledemo'
+        repository: $(imageRepository)
         command: 'build'
         Dockerfile: '**/Dockerfile'
-    - task: Docker@2
+
+    
+    - task: CmdLine@2
       inputs:
-        command: 'push'
+        script: |
+          docker login $(dockerserver) --username $(dockerusername) --password $(dockerpassword)
+          docker tag $(imageRepository):$(Build.BuildId) $(dockerserver)/$(imageRepository):$(Build.BuildId)
+          docker push $(dockerserver)/$(imageRepository):$(Build.BuildId)
+          docker rmi $(dockerserver)/$(imageRepository):$(Build.BuildId)
+          docker rmi $(imageRepository):$(Build.BuildId)
