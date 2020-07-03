@@ -1,5 +1,5 @@
 FROM openjdk:8
-COPY ./target/maven-demo.jar maven-demo.jar
+COPY ./target/demo.jar demo.jar
 COPY start.sh start.sh
 RUN chmod 777 start.sh
 EXPOSE 8080 8080
