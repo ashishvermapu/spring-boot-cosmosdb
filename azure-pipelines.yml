@@ -6,11 +6,21 @@
 resources:
 - repo: self
 
+
 variables:
-  imageRepository: 'sbcomexampledemo'
-  containerRegistry: 'wfesmpimages.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+- group: poc-aks-ingress
+- name: imageRepository 
+  value: 'sbcomexampledemo'
+- name: dockerserver
+  value: '$(docker_registry).azurecr.io'
+- name: dockerusername
+  value: $(service_principal_id)
+- name: dockerpassword
+  value: $(service_principal_secret)
+- name: dockerfilePath
+  value: '$(Build.SourcesDirectory)/Dockerfile'
+- name: tag
+  value: '$(Build.BuildId)'
   
 pool: Default
 
