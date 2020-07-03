@@ -47,6 +47,7 @@ stages:
         script: 'docker login $(dockerserver) --username $(dockerusername) --password $(dockerpassword)'
     - task: Docker@2
       inputs:
+        repository: 'sbexampledemo'
         command: 'build'
         Dockerfile: '**/Dockerfile'
     - task: Docker@2
