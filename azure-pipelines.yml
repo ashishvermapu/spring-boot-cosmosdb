@@ -4,8 +4,12 @@
 
 
 resources:
-- repo: self
-
+  pipelines:
+  - pipeline: terraform_apply
+    source: tf-aks-ingress-apply
+    trigger:
+      branches:
+      - master
 
 variables:
 - group: poc-aks-ingress
