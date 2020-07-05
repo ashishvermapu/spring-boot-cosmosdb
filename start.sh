@@ -1,1 +1,1 @@
-java -jar maven-demo.jar
+java -jar demo.jar
