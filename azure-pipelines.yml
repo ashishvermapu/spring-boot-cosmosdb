@@ -55,8 +55,9 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
+          export MVN_PROJ_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           docker login $(dockerserver) --username $(dockerusername) --password $(dockerpassword)
-          docker tag $(imageRepository):$(Build.BuildId) $(dockerserver)/$(imageRepository):$(Build.BuildId)
-          docker push $(dockerserver)/$(imageRepository):$(Build.BuildId)
-          docker rmi $(dockerserver)/$(imageRepository):$(Build.BuildId)
-          docker rmi $(imageRepository):$(Build.BuildId)
+          docker tag $(imageRepository):$(Build.BuildId) $(dockerserver)/$(imageRepository):${MVN_PROJ_VERSION}
+          docker push $(dockerserver)/$(imageRepository):${MVN_PROJ_VERSION}
+          docker rmi $(dockerserver)/$(imageRepository):${MVN_PROJ_VERSION}
+          docker rmi $(imageRepository):${MVN_PROJ_VERSION}
