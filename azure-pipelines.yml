@@ -60,4 +60,4 @@ stages:
           docker tag $(imageRepository):$(Build.BuildId) $(dockerserver)/$(imageRepository):${MVN_PROJ_VERSION}
           docker push $(dockerserver)/$(imageRepository):${MVN_PROJ_VERSION}
           docker rmi $(dockerserver)/$(imageRepository):${MVN_PROJ_VERSION}
-          docker rmi $(imageRepository):${MVN_PROJ_VERSION}
+          docker rmi $(imageRepository):$(Build.BuildId)
