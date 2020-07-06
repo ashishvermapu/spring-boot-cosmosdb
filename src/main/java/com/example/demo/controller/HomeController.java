@@ -14,4 +14,16 @@ public class HomeController {
     map.put("name", name);
     return "home";
   }
+
+  @RequestMapping(value = "/service1", method = RequestMethod.GET)
+  public String service1(ModelMap map, @RequestParam(defaultValue = "Stranger") String name) {
+    map.put("name", "Service 1");
+    return "home";
+  }
+
+  @RequestMapping(value = "/service2", method = RequestMethod.GET)
+  public String service2(ModelMap map, @RequestParam(defaultValue = "Stranger") String name) {
+    map.put("name", "Service 2");
+    return "home";
+  }
 }
