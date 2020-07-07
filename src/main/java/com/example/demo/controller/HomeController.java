@@ -14,7 +14,7 @@ public class HomeController {
   protected static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
   @RequestMapping(value = "/", method = RequestMethod.GET)
-  public String home(ModelMap map, @RequestParam(defaultValue = "Stranger") String name) {
+  public String home(ModelMap map, @RequestParam(defaultValue = "Friend") String name) {
     LOGGER.info("home method executed");
     map.put("name", name);
     return "home";
