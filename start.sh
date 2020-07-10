@@ -1,1 +1,1 @@
-java -jar demo.jar $JVMARGS
+java $JVMARGS -jar demo.jar
