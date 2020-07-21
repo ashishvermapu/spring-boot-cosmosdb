@@ -1,20 +1,27 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This is dummy springboot project which can be 
+used a modified to do experiments. 
+This with the help of a pipeline in Azure can be 
+converted into a docker image which can be used to 
+deploy on kubernetes or docker rutime.
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+1. Clone the project to your local.
+2. Modify it as per your requirements
+3. Use Build and Test section to build and use for your testing.
+4. If you want to keep changes for future then check in a different branch.
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+1. Do a maven install
+    - Start from root directory of the project
+    - use maven to build and install `mvn clean install`
+    - This will create jar file `target/demo.jar`
+    - You can directly run this jar file in java runtime `java -jar target/demo.jar`
+  
+2. Build docker image
+    - If you dont want to run this in docker runtime or in a kubernetes cluster build a docker image.
+    - To build docker image use `docker build --tag imagename:tag .`
+    - You can tag this image to be pushed to a repository and use for deploymetn on K8s
+    - Use command `docker tag imagename:tag repository.domain.com/imagename:tag`
+    - Push to repository `docker push repository.domain.com/imagename:tag`
+    
