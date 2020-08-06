@@ -1,5 +1,0 @@
-azure:
-  cosmosdb:
-    uri: "https://temp-db-41658.documents.azure.com:443/"
-    key: "LNQnyEC6zNWmTtxPj6sq9Za6OmfzSdFeTq7xYZ2QNmYN36QJGOR8sKGwJS6yfeqsPlEMcPK2kkw8VrnFSCaM6Q=="
-    database: "TMUsers"
