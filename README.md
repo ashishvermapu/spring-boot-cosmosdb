@@ -1,15 +1,14 @@
 # Introduction 
-This is dummy springboot project which can be 
-used a modified to do experiments. 
-This with the help of a pipeline in Azure can be 
-converted into a docker image which can be used to 
-deploy on kubernetes or docker rutime.
+This project uses cosmos db SQL container/database. It demonstrates how cosmos db can be used with springboot.
 
 # Getting Started
 1. Clone the project to your local.
-2. Modify it as per your requirements
+2. Create a comsos db account; SQL API based database & container.
+    - Database Name : "TMUsers" (This will be added to the application.yml file)
+    - URI : Read/Write URI to the cosmosdb account; update in applicaiton.yml
+    - Key : Read/Write key to the cosmosdb account; update in application.yml
+    - Continer Name : "tmusers" If container is missing, applicaiton will create new container.
 3. Use Build and Test section to build and use for your testing.
-4. If you want to keep changes for future then check in a different branch.
 
 # Build and Test
 1. Do a maven install
@@ -25,3 +24,12 @@ deploy on kubernetes or docker rutime.
     - Use command `docker tag imagename:tag repository.domain.com/imagename:tag`
     - Push to repository `docker push repository.domain.com/imagename:tag`
     
+3. Testing
+    - Creating user
+    `curl --request POST  --header "Content-Type: application/json" --data '{ "firstName":"Ashish", "lastName":"Verma", "id":"127906" }' http://localhost:8080/tmuser`
+
+    - Get User by ID
+    `curl http://localhost:8080/tmuser/id/{userId}`
+
+    - Get User by First Name
+    `curl http://localhost:8080/tmuser/firstname/{firstName}`
